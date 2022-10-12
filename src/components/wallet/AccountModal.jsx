@@ -62,7 +62,6 @@ const AccountModal = ({ account, logout, onDismiss = () => {} }) => {
                     >
                         Logout
                     </button>
-                </div>
                 {
                     isTooltipDisplayed 
                     &&
@@ -70,6 +69,7 @@ const AccountModal = ({ account, logout, onDismiss = () => {} }) => {
                         Copied!
                     </div>
                 }
+                </div>
             </div>
         </div>
     );

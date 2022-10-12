@@ -1,0 +1,88 @@
+@media screen and (min-width: 0px) {
+    .nfttomint_container{
+        /* border: 2px solid #fff; */
+        border-radius: 12px;
+        background-color: #090844;
+        margin: 20px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .nfttomint_name{
+        color: #090844;
+        background-color: #17D2FB;
+        max-width: 70%;
+        padding: 12px;
+        margin: 12px 12px 12px -1px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        text-align: center;
+    }
+
+    .nfttomint_img{
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .nfttomint_minting_details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nfttomint_nftprice{
+        color: #403DF3;
+    }
+
+    .nfttomint_nftprice .nfttomint_nftprice_price{
+        color: #17D2FB;
+    }
+
+    .nfttomint_maxwallet{
+        color: #403DF3;
+    }
+    .nfttomint_minted{
+        background-color: #403DF342;
+        color: #17D2FB;
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-weight: 700;
+    }
+
+    .nfttomint_addsub{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 70px;
+    }
+
+    .nfttomint_subbtn, .nfttomint_addbtn{
+        background-color: #17D2FB;
+        color: #403DF3;
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-weight: 700;
+        border: none;
+    }
+
+    .nfttomint_mintamt{
+        color: #403DF3;
+        font-weight: 700;
+        padding: 6px 8px;
+    }
+
+    .nfttomint_mintbtn{
+        background-color: #17D2FB;
+        width: 70%;
+        max-width: 500px;
+        border-radius: 14px;
+        margin: 8px;
+        font-weight: 700;
+        padding: 7px 0px;
+        border: none;
+
+    }
+
+}

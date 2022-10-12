@@ -12,6 +12,7 @@ import ActivePools from './Pages/ActivePools';
 import ShowPool from './Pages/ShowPool';
 import FinishedPools from './Pages/FinishedPools';
 import ShowInactivePool from './Pages/ShowInactivePool';
+import UserNFTs from './Pages/UserNFTs';
 
 const App = () => {
 
@@ -49,8 +50,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activepools" element={<ActivePools />} />
+          <Route path="/usernfts" element={<UserNFTs />} />
           <Route path="/inactivepools" element={<FinishedPools />} />
-          <Route path="/inactivepool/:sousId" element={<ShowInactivePool />} />
+          {/* <Route path="/inactivepool/:sousId" element={<ShowInactivePool />} /> */}
+          <Route path="inactivepool" element={<ShowInactivePool />}>
+            <Route path=":sousId" element={<ShowInactivePool />} />
+          </Route>
           <Route path="/pool/:sousId" element={<ShowPool />} />
         </Routes>
         {/* <div style={{ position: 'relative'}}>
