@@ -24,7 +24,7 @@ const multicall = async (abi, calls, options = {}) => {
         return res
     } catch (error) {
         console.error(error);
-        throw new Error(error);
+        // throw new Error(error);
         // throw new Error("Error");
         
     }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import logo from '../../logo.svg';
 import truncateWalletAddress from '../../utils/truncateWalletAddress';
@@ -63,16 +63,16 @@ const Navbar = () => {
     <div className="gpt3__navbar">
       <div className="gpt3__navbar-links">
         <div className="gpt3__navbar-links_logo">
-          <Link to="/">
+          <NavLink to="/">
             <img style={{ marginBottom: -5 }} src='/images/briselogo/brise-vertical.png' alt="BrisePad" />
-          </Link>
+          </NavLink>
           {/* <img style={{ marginBottom: -5 }} src={logo} alt="PoolApp" /> */}
           {/* <h2 style={{color: '#ffffff'}}>BrisePad</h2> */}
         </div>
         <div className="gpt3__navbar-links_container">
-          <p><Link to="/">Home</Link></p>
-          <p><Link to="/activepools">Pools</Link></p>
-          <p><Link to="/inactivepools">Finished</Link></p>
+          <p><NavLink to="/">Home</NavLink></p>
+          <p><NavLink to="/usernfts">Minted</NavLink></p>
+          {/* <p><NavLink to="/inactivepools">Finished</NavLink></p> */}
           
         </div>
       </div>
@@ -87,9 +87,9 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="gpt3__navbar-menu_container scale-up-center">
           <div className="gpt3__navbar-menu_container-links">
-          <p><Link onClick={closeToggleMenu} to="/">Home</Link></p>
-          <p><Link onClick={closeToggleMenu} to="/activepools">Pools</Link></p>
-          <p><Link onClick={closeToggleMenu} to="/inactivepools">Finished</Link></p>
+          <p><NavLink onClick={closeToggleMenu} to="/">Home</NavLink></p>
+          <p><NavLink onClick={closeToggleMenu} to="/usernfts">Minted</NavLink></p>
+          {/* <p><NavLink onClick={closeToggleMenu} to="/inactivepools">Finished</NavLink></p> */}
           </div>
           <div className="gpt3__navbar-menu_container-links-sign">
             {/* <p>Launch Loan App</p> */}
