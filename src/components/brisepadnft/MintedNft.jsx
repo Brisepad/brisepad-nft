@@ -3,10 +3,8 @@ import { BASE_BSC_SCAN_URL } from "../../config";
 import { getBrisePadNFTAddress } from "../../utils/addressHelpers";
 import "./mintedNft.css";
 
-// const explorer = "https://brisescan.com";
 
 const MintedNft = ({ id, name, image, balance }) => {
-    // const nftAddress = getBrisePadNFTAddress();
     
     return (
 
