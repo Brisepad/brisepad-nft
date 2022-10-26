@@ -1,7 +1,7 @@
 
 import { BASE_BSC_SCAN_URL } from "../../config";
 import { getBrisePadNFTAddress } from "../../utils/addressHelpers";
-import "./mintedNft.css";
+import "./mintedNftStyle.css";
 
 
 const MintedNft = ({ id, name, image, balance }) => {

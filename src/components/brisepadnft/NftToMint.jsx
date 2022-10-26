@@ -2,7 +2,7 @@ import { useWeb3React } from "@web3-react/core";
 import { useState } from "react";
 import toast from 'react-hot-toast';
 import useBrisePadNft from "../../hooks/useBrisePadNft";
-import "./nftToMint.css";
+import "./nftToMintStyle.css";
 
 
 const NftToMint = ({ id, name, imageUrl, pricePerNFT, maxSupply, amountMinted, maxPerWallet }) => {
