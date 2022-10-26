@@ -19,7 +19,7 @@ gasPrice: GAS_SETTINGS.default,
 })
 
 export const getStorageKey = (account) => {
-return `brisepad_settings_${account}_${VERSION}`
+return `brisepadnft_settings_${account}_${VERSION}`
 }
 
 export const getSettings = (account) => {

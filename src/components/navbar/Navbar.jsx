@@ -9,11 +9,19 @@ import AccountModal from '../wallet/AccountModal';
 import { connectorLocalStorageKey } from '../wallet/config';
 import WalletModal from '../wallet/WalletModal';
 import './navbar.css';
+import getNodeUrl, { bitkeepLocalhost } from '../../utils/getRpcUrl';
 
 const Navbar = () => {
   const { login, logout } = useAuth();
-  const { active, account, library, connector, activate, deactivate } = useWeb3React()
+  const { active, account, library } = useWeb3React();
+  // Change Bitkeep wallet RPC url
+  if(library && library._provider.rpc && window?.bitkeep?.ethereum.isBitKeep && window?.bitkeep?.ethereum.isBitEthereum){
+    if(library._provider.rpc.rpcUrl === bitkeepLocalhost){
+        library._provider.rpc.rpcUrl = getNodeUrl();
+        console.log("Nav lib: ", library._provider.rpc.rpcUrl);
 
+    }
+  }
 
   const [toggleMenu, setToggleMenu] = useState(false);
   const [openWalletModal, setOpenWalletModal] = useState(false);
@@ -47,6 +55,12 @@ const Navbar = () => {
       if (connectorId) {
         try {
           login(connectorId);
+          // Change Bitkeep wallet RPC url
+          if(library && library._provider.rpc && window?.bitkeep?.ethereum.isBitKeep && window?.bitkeep?.ethereum.isBitEthereum){
+            if(library._provider.rpc.rpcUrl === bitkeepLocalhost){
+              library._provider.rpc.rpcUrl = getNodeUrl();
+            }
+          }
           window.initWeb3 = library;
           // localStorage.setItem('isWalletConnected', true)
         } catch (ex) {
@@ -55,7 +69,7 @@ const Navbar = () => {
       }
     }
     connectWalletOnPageLoad();
-  }, []);
+  }, [library, login]);
 
 
   return (
@@ -70,9 +84,8 @@ const Navbar = () => {
           {/* <h2 style={{color: '#ffffff'}}>BrisePad</h2> */}
         </div>
         <div className="gpt3__navbar-links_container">
-          <p><NavLink to="/">Home</NavLink></p>
+          <p><NavLink to="/" end>Home</NavLink></p>
           <p><NavLink to="/usernfts">Minted</NavLink></p>
-          {/* <p><NavLink to="/inactivepools">Finished</NavLink></p> */}
           
         </div>
       </div>
@@ -87,7 +100,7 @@ const Navbar = () => {
         {toggleMenu && (
         <div className="gpt3__navbar-menu_container scale-up-center">
           <div className="gpt3__navbar-menu_container-links">
-          <p><NavLink onClick={closeToggleMenu} to="/">Home</NavLink></p>
+          <p><NavLink onClick={closeToggleMenu} to="/" end>Home</NavLink></p>
           <p><NavLink onClick={closeToggleMenu} to="/usernfts">Minted</NavLink></p>
           {/* <p><NavLink onClick={closeToggleMenu} to="/inactivepools">Finished</NavLink></p> */}
           </div>

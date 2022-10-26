@@ -8,4 +8,6 @@ const getNodeUrl = () => {
   return nodes[randomIndex];
 }
 
+export const bitkeepLocalhost = process.env.REACT_APP_BITKEEPLOCALHOST;
+
 export default getNodeUrl;

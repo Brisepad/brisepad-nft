@@ -3,7 +3,7 @@ import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
 import { BscConnector } from '@binance-chain/bsc-connector';
 import Web3 from 'web3';
 import { ConnectorNames } from '../components/wallet/config';
-import getNodeUrl from './getRpcUrl';
+import getNodeUrl, { bitkeepLocalhost } from './getRpcUrl';
 
 
 const POLLING_INTERVAL = 12000;
@@ -28,6 +28,25 @@ export const connectorsByName = {
 }
   
 export const getLibrary = (provider) => {
+    // Change Bitkeep wallet RPC url
+  if(
+        provider
+        &&
+        provider.rpc
+        && 
+        window?.bitkeep
+        &&
+        window?.bitkeep?.ethereum?.isBitKeep
+        &&
+        window?.bitkeep
+        &&
+        window.bitkeep?.ethereum?.isBitEthereum
+    ){
+      if(provider.rpc.rpcUrl === bitkeepLocalhost){
+        provider.rpc.rpcUrl = rpcUrl;
+      }
+      
+    }
     return new Web3(provider);
 }
   

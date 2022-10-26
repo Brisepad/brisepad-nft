@@ -9,3 +9,7 @@ export const getAddress = (address) => {
 export const getMulticallAddress = () => {
     return getAddress(addresses.multiCall)
 }
+
+export const getBrisePadNFTAddress = () => {
+    return getAddress(addresses.brisePadNFT)
+}

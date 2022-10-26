@@ -1,84 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useRefresh from '../hooks/useRefresh';
 import NftToMint from '../components/brisepadnft/NftToMint';
+import { fetchNfts } from '../state/nfts/fetchNfts';
 
-// import { Footer, Header } from '../containers';
-// import {  Navbar } from '../components';
 import '../App.css';
 
-const NFTs = [
-  {
-    name: "BrisePad NFT 1",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 1000000,
-    maxSupply: 100,
-    amountMinted: 21,
-    maxPerWallet: 2
-  },
-  {
-    name: "BrisePad NFT 2",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 2000000,
-    maxSupply: 200,
-    amountMinted: 32,
-    maxPerWallet: 7
-  },
-  {
-    name: "BrisePad NFT 3",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 3000000,
-    maxSupply: 300,
-    amountMinted: 43,
-    maxPerWallet: 5
-  },
-  {
-    name: "BrisePad NFT 4",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 3000000,
-    maxSupply: 300,
-    amountMinted: 43,
-    maxPerWallet: 4
-  },
-  {
-    name: "BrisePad NFT 4",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 3000000,
-    maxSupply: 300,
-    amountMinted: 43,
-    maxPerWallet: 4
-  },
-  {
-    name: "BrisePad NFT 4",
-    imageUrl: "https://image.shutterstock.com/image-illustration/bright-artistic-splashes-abstract-painting-600w-717161425.jpg",
-    pricePerNFT: 3000000,
-    maxSupply: 300,
-    amountMinted: 43,
-    maxPerWallet: 4
-  }
-  
-]
-//{ name, imageUrl, pricePerNFT, maxSupply, amountMinted, maxPerWallet }
 
-const Home = () => (
-  <div className="App">
-    <div className="gradient__bg">
-      <div className='home_nfts'>
-        {NFTs.map((nft) => {
-          return (
-            <NftToMint 
-              key={nft.name}
-              name={nft.name} 
-              imageUrl={nft.imageUrl} 
-              pricePerNFT={nft.pricePerNFT} 
-              maxSupply={nft.maxSupply} 
-              amountMinted={nft.amountMinted} 
-              maxPerWallet={nft.maxPerWallet} 
-            
-            />
-          )
-        })}
+const Home = () => {
+  const [nfts, setNfts] = useState([]);
+  const { fastRefresh } = useRefresh();
+
+  useEffect(() => {
+    (async () => {
+      const loadedNfts = await fetchNfts();
+      setNfts(loadedNfts);
+    })();
+  }, [fastRefresh]);
+
+  return(
+    <div className="App">
+      <div className="gradient__bg">
+        <div className='home_nfts'>
+          {nfts.map((nft) => {
+             return (
+              <NftToMint
+                key={nft.id}
+                id={nft.id}
+                name={nft.name}
+                imageUrl={nft.image} 
+                pricePerNFT={nft.mintPrice} 
+                maxSupply={nft.supplyMax} 
+                amountMinted={nft.totalSupply} 
+                maxPerWallet={nft.walletMax} 
+              
+              />
+            )
+             }
+          )}
+        </div>
       </div>
     </div>
-  </div>
-);
+  )
+};
 
 export default Home;

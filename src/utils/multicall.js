@@ -7,9 +7,9 @@ import { getMulticallAddress } from './addressHelpers';
 
 const multicall = async (abi, calls, options = {}) => {
     try {
-        // const web3 = options.web3 || getWeb3NoAccount();
+        const web3 = options.web3 || getWeb3NoAccount();
         
-        const web3 = options.web3 || window.initWeb3;
+        // const web3 = options.web3 || window.initWeb3;
         if(web3 === undefined){
             return;
         }
@@ -17,8 +17,6 @@ const multicall = async (abi, calls, options = {}) => {
         const itf = new Interface(abi)
 
         const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)])
-        // console.log('multi address: ', getMulticallAddress())
-        // console.log('calldata: ', calldata)
         const { returnData } = await multi.methods.aggregate(calldata).call(undefined, options.blockNumber)
         const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call))
         return res

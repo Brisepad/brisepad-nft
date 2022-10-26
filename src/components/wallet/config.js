@@ -1,4 +1,5 @@
 import Metamask from "./icons/Metamask";
+import Bitkeep from "./icons/Bitkeep";
 import MathWallet from "./icons/MathWallet";
 import TokenPocket from "./icons/TokenPocket";
 import TrustWallet from "./icons/TrustWallet";
@@ -17,6 +18,11 @@ const connectors = [
   {
     title: "Metamask",
     Icon: Metamask,
+    connectorId: ConnectorNames.Injected,
+  },
+  {
+    title: "Bitkeep",
+    Icon: Bitkeep,
     connectorId: ConnectorNames.Injected,
   },
   // {

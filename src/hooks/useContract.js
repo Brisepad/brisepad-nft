@@ -1,13 +1,10 @@
 import { useMemo } from 'react';
-import { getBep20Contract, getSouschefContract } from '../utils/contractHelpers';
+import { getBrisePadNFTContract } from '../utils/contractHelpers';
 import useWeb3 from "./useWeb3"
 
-export const useSousChef = (id) => {
-    const web3 = useWeb3()
-    return useMemo(() => getSouschefContract(id, web3), [id, web3])
-}
 
-export const useERC20 = (address) => {
+
+export const useBrisePadNFT = () => {
     const web3 = useWeb3()
-    return useMemo(() => getBep20Contract(address, web3), [address, web3])
+    return useMemo(() => getBrisePadNFTContract(web3), [web3])
 }

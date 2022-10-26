@@ -6,14 +6,9 @@ const RPC_URL = getRpcUrl()
 
 
 const httpProvider = new Web3.providers.HttpProvider(RPC_URL, {
-    headers:[
-        {
-            name: 'Access-Control-Allow-Origin',
-            value: '*'
-        }
-    ],
-    timeout: 10000 
-});
+        timeout: 10000 
+    }
+);
 
 const web3NoAccount = new Web3(httpProvider)
 

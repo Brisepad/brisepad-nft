@@ -6,6 +6,7 @@ p a.active{
     /* line-height: 1.2; */
     border-radius: 6px;
     max-width: 100px;
+    margin: 0;
 }
 .gpt3__navbar {
     display: flex;
@@ -57,9 +58,9 @@ p a.active{
     cursor: pointer;
 }
 
-.gpt3__navbar-links_container p{
+/* .gpt3__navbar-links_container p{
     width: 100px;
-}
+} */
 
 .gpt3__navbar-sign button,
 .gpt3__navbar-menu_container button {
