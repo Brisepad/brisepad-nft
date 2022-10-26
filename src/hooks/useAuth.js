@@ -13,9 +13,16 @@ import toast from "react-hot-toast";
 import { connectorsByName } from '../utils/web3React';
 import { connectorLocalStorageKey } from '../components/wallet/config';
 import { setupNetwork } from '../utils/wallet';
+import getNodeUrl, { bitkeepLocalhost } from '../utils/getRpcUrl';
 
 const useAuth = () => {
   const { activate, deactivate, library } = useWeb3React();
+  // Change Bitkeep wallet RPC url
+  if(library && library._provider.rpc && window?.bitkeep?.ethereum.isBitKeep && window?.bitkeep?.ethereum.isBitEthereum){
+    if(library._provider.rpc.rpcUrl === bitkeepLocalhost){
+        library._provider.rpc.rpcUrl = getNodeUrl();
+    }
+  }
 
   const login = useCallback(
 
@@ -24,6 +31,12 @@ const useAuth = () => {
         if(connector) {
             activate(connector, async(error) => {
                 if(!error){
+                  // Change Bitkeep wallet RPC url
+                  if(library && library._provider.rpc && window?.bitkeep?.ethereum.isBitKeep && window?.bitkeep?.ethereum.isBitEthereum){
+                    if(library._provider.rpc.rpcUrl === bitkeepLocalhost){
+                        library._provider.rpc.rpcUrl = getNodeUrl();
+                    }
+                  }
                   window.initWeb3 = library;
                 }
                 if (error instanceof UnsupportedChainIdError) {
@@ -61,7 +74,7 @@ const useAuth = () => {
                 }
 
 
-    }, [activate]
+    }, [activate, library]
   );
 
   const logout = useCallback(() => {

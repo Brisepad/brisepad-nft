@@ -17,7 +17,7 @@ const WalletCard = ({login, walletConfig, onDismiss }) => {
         >
             {title}
             <div className='wallet_card_icon'>
-                <Icon/>
+                <Icon width="32px"/>
             </div>
 
         </button>

@@ -1,29 +1,6 @@
 @media screen and (min-width: 0px) {
-    /* Loader */
-    .loader {
-        border: 4px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 4px solid #3498db;
-        width: 17px;
-        height: 17px;
-        margin: 0 auto;
-        -webkit-animation: spin 2s linear infinite; /* Safari */
-        animation: spin 2s linear infinite;
-      }
-      
-      /* Safari */
-      @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
     
-    .nfttomint_container{
+    .mintednft_container{
         /* border: 2px solid #fff; */
         border-radius: 12px;
         background-color: #08067d;
@@ -32,7 +9,7 @@
         max-width: 300px;
     }
 
-    .nfttomint_name{
+    .mintednft_name{
         color: #090844;
         background-color: #17D2FB;
         max-width: 70%;
@@ -43,30 +20,31 @@
         text-align: center;
     }
 
-    .nfttomint_img{
+    .mintednft_img{
         width: 100%;
         max-width: 400px;
     }
 
-    .nfttomint_minting_details{
+    .mintednft_minting_details{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .nfttomint_nftprice{
+    .mintednft_nftprice{
         color: #17D2FB;
+        margin: 15px 10px;
     }
 
-    .nfttomint_nftprice_price{
+    .mintednft_nftprice_price{
         color: #fff;
     }
 
-    .nfttomint_maxwallet{
+    .mintednft_maxwallet{
         color: #17D2FB;
     }
-    .nfttomint_minted{
+    .mintednft_minted{
         background-color: #403DF342;
         color: #17D2FB;
         padding: 6px 10px;
@@ -74,7 +52,7 @@
         font-weight: 700;
     }
 
-    .nfttomint_addsub{
+    .mintednft_addsub{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -82,7 +60,7 @@
         max-width: 70px;
     }
 
-    .nfttomint_subbtn, .nfttomint_addbtn{
+    .mintednft_subbtn, .mintednft_addbtn{
         background-color: #17D2FB;
         color: #403DF3;
         padding: 5px 10px;
@@ -91,21 +69,23 @@
         border: none;
     }
 
-    .nfttomint_mintamt{
+    .mintednft_mintamt{
         color: #17D2FB;
         font-weight: 700;
         padding: 6px 8px;
     }
 
-    .nfttomint_mintbtn{
+    .mintednft_mintbtn{
         background-color: #17D2FB;
         width: 70%;
+        text-align: center;
         max-width: 500px;
         border-radius: 14px;
-        margin: 8px;
+        margin: 8px auto;
         font-weight: 700;
         padding: 7px 0px;
         border: none;
+        color: #08067d;
         cursor: pointer;
     }
 
