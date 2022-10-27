@@ -10,8 +10,8 @@ import { nfts, MAX_PER_WALLET as walletMax, MAX_SUPPLY as supplyMax, MINT_PRICE 
 
 
 
-export const fetchNfts = async () => {
-    const totalSupplies = nfts.map(nft => {
+export const fetchNfts = async (nftsToFetch) => {
+    const totalSupplies = nftsToFetch.map(nft => {
         return {
             address: getBrisePadNFTAddress(),
             name: "totalSupply",
@@ -24,20 +24,22 @@ export const fetchNfts = async () => {
     if(nftTotalSupplies === undefined){
         return ([]);
     }
-    return nfts.map((nft, index) => {
-        const supply = nftTotalSupplies[index];
-        const tSupply = new BigNumber(supply).toJSON();
-        return {
-            id: nft.id,
-            name: nft.name,
-            image: nft.image,
-            totalSupply: tSupply,
-            isMaxReached: tSupply >= supplyMax,
-            walletMax,
-            supplyMax,
-            mintPrice
-        };
-    });
+    return nftTotalSupplies;
+
+    // return nfts.map((nft, index) => {
+    //     const supply = nftTotalSupplies[index];
+    //     const tSupply = new BigNumber(supply).toJSON();
+    //     return {
+    //         id: nft.id,
+    //         name: nft.name,
+    //         image: nft.image,
+    //         totalSupply: tSupply,
+    //         isMaxReached: tSupply >= supplyMax,
+    //         walletMax,
+    //         supplyMax,
+    //         mintPrice
+    //     };
+    // });
 }
 
 export const fetchUserNfts = async (account) => {
@@ -53,5 +55,4 @@ export const fetchUserNfts = async (account) => {
             
         };
     }).filter(nft => nft.balance > 0);
-}
-  
+}  
